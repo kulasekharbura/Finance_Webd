@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Landing_page/home/HomePage";
-import Signup from "./Landing_page/signup/Singup";
+// import Signup from "./Landing_page/signup/Singup";
 import AboutPage from "./Landing_page/about/AboutPage";
 import ProductPage from "./Landing_page/products/ProductPage";
 import PricingPage from "./Landing_page/pricing/PricingPage";
@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")).render(
     <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
+      {/* <Route path="/signup" element={<Signup />}></Route> */}
       <Route path="/about" element={<AboutPage />}></Route>
       <Route path="/products" element={<ProductPage />}></Route>
       <Route path="/pricing" element={<PricingPage />}></Route>
