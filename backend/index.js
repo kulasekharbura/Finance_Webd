@@ -15,7 +15,7 @@ const cookieParser = require("cookie-parser");
 
 app.use(
   cors({
-    origin: ["https://zerodha-ttjz.onrender.com"],
+    origin: ["https://kite-five.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
