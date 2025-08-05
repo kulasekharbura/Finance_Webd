@@ -26,7 +26,7 @@ AuthController.Signup = async (req, res, next) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "strict",
     });
 
@@ -68,7 +68,7 @@ AuthController.Login = async (req, res, next) => {
     // FIX: Corrected cookie options. `withCredentials` is a client-side setting.
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "strict",
     });
 
