@@ -6,13 +6,23 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 const app = express();
+const authRoute = require("./Routes/AuthRoute");
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { OrdersModel } = require("./model/OrdersModel");
+const cookieParser = require("cookie-parser");
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: ["https://zerodha-ttjz.onrender.com"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -74,8 +84,13 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
+app.use(cookieParser());
+app.use("/", authRoute);
+
 app.listen(PORT, () => {
   console.log("App started!");
-  mongoose.connect(uri);
-  console.log("DB connected!");
+  mongoose
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB is connected succesfully"))
+    .catch((err) => console.error(err));
 });
