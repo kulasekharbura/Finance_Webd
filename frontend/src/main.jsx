@@ -3,9 +3,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Landing_page/home/HomePage";
-import Home from "./Landing_page/homes/Home";
-import Signup from "./Landing_page/signup/Singup";
-import Login from "./Landing_page/login/Login";
 import AboutPage from "./Landing_page/about/AboutPage";
 import ProductPage from "./Landing_page/products/ProductPage";
 import PricingPage from "./Landing_page/pricing/PricingPage";
@@ -19,9 +16,6 @@ createRoot(document.getElementById("root")).render(
     <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
-      <Route path="/home" element={<Home />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/login" element={<Login />} />
       <Route path="/about" element={<AboutPage />}></Route>
       <Route path="/products" element={<ProductPage />}></Route>
       <Route path="/pricing" element={<PricingPage />}></Route>
